@@ -19,6 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <provider
+            android:authorities="demo.sharedpreferences.mp.com.mpsharedpreferences.MPSharedPreference"
+            android:name="com.baron.MPSharedPreferences.MPConfigProvider">
+
+        </provider>
     </application>
 
 </manifest>
