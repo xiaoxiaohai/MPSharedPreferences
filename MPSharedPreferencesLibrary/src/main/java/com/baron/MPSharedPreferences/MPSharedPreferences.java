@@ -3,14 +3,11 @@ package com.baron.MPSharedPreferences;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 
-import java.util.Map;
-import java.util.Set;
-
 /**
  * Created by xiaohai1 on 2017/3/30.
  *
  * Interface for accessing and modifying preference data returned by {@link
- * Context#getSharedPreferences}.  For any particular set of preferences,
+ * MPPreferenceManager#getSharedPreferences}.  For any particular set of preferences,
  * there is a single instance of this class that all clients share.
  * Modifications to the preferences must go through an {@link Editor} object
  * to ensure the preference values remain in a consistent state and control
@@ -25,7 +22,7 @@ import java.util.Set;
  * <a href="{@docRoot}guide/topics/data/data-storage.html#pref">Data Storage</a>
  * developer guide.</p></div>
  *
- * @see Context#getSharedPreferences
+ * @see MPPreferenceManager#getSharedPreferences
  */
 
 public interface MPSharedPreferences {

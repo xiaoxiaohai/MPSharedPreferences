@@ -55,7 +55,7 @@ public class PutProxy {
             cv.put(MPConfigProvider.CONTENT_NAME , name);
             cv.put(MPConfigProvider.CONTENT_MODE ,  mode) ;
             cv.put(MPConfigProvider.CONTENT_OPT , opt);
-            contentResolver.insert(Uri.parse(MPConfigProvider.URI_CONFIG), cv);
+            contentResolver.insert(Uri.parse(MPPreferenceManager.URI_CONFIG), cv);
             return true ;
         }catch (Exception e){
             return false ;
@@ -67,7 +67,7 @@ public class PutProxy {
             throw new RuntimeException( "SP Name || Key  Can not be null " ) ;
         }
         try {
-            Uri uri = Uri.parse(MPConfigProvider.URI_CONFIG + "/" + Name + "/" + Mode+  "/" + key);
+            Uri uri = Uri.parse(MPPreferenceManager.URI_CONFIG + "/" + Name + "/" + Mode+  "/" + key);
             return contentResolver.getType(uri);
         }
         catch(Exception e) {

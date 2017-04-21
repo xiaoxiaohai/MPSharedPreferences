@@ -2,12 +2,17 @@ package com.baron.MPSharedPreferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 
 /**
  * Created by xiaohai1 on 2017/4/20.
  */
 
 public class MPPreferenceManager {
+
+
+    protected static  String URI_CONFIG ;
+    private static Context sContext  ;
 
     /**
      * Retrieve and hold the contents of the preferences file 'name', returning
@@ -27,12 +32,27 @@ public class MPPreferenceManager {
      *
      * @see Context#MODE_PRIVATE
      */
-    public static MPSharedPreferences getSharedPreferences(String name, int mode , Context context){
-        return  new MPSharedPreferencesImpl(name , mode , context) ;
+    public static MPSharedPreferences getSharedPreferences(String name, int mode ){
+
+        if (sContext == null || TextUtils.isEmpty(URI_CONFIG)){
+            throw new RuntimeException("MPPreferenceManager need init") ;
+        }
+
+        return  new MPSharedPreferencesImpl(name , mode , sContext) ;
     }
 
-//    public static MPPreferenceManager getDefaultPreferences(Context context){
-//        return new MPPreferenceManager() ;
-//    }
+    public synchronized static void init(Context context , String authorities){
+        if (context == null || TextUtils.isEmpty(authorities)){
+            throw new RuntimeException("context & authorities can not be null ") ;
+        }
+
+        if (sContext == null){
+            sContext = context ;
+        }
+
+        if (TextUtils.isEmpty(URI_CONFIG)){
+            URI_CONFIG =  "content://" + authorities ;
+        }
+    }
 
 }

@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
         });
         getSharedPreferences("" , 1)  ;
 
-        MPSharedPreferences mpSharedPreferences = MPPreferenceManager.getSharedPreferences("haha" , Context.MODE_PRIVATE , getApplicationContext()) ;
+        MPPreferenceManager.init(getApplicationContext() , "demo.sharedpreferences.mp.com.mpsharedpreferences.MPSharedPreference");
+        MPSharedPreferences mpSharedPreferences = MPPreferenceManager.getSharedPreferences("haha" , Context.MODE_PRIVATE ) ;
 
         String aa = mpSharedPreferences.getString("hahahaha" , "defalut") ;
 

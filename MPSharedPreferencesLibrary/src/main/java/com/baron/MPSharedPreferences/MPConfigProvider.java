@@ -16,7 +16,6 @@ public class MPConfigProvider extends ContentProvider{
     public static final int OPT_PUT = 1 ;
     public static final int OPT_REMOVE = 2  ;
 
-    public static final String URI_CONFIG = "content://demo.sharedpreferences.mp.com.mpsharedpreferences.MPSharedPreference";
     public static final String CONTENT_KEY = "config_key";
     public static final String CONTENT_VALUE = "config_value";
     public static final String CONTENT_NAME = "config_name" ;
