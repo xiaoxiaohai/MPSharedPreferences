@@ -12,26 +12,20 @@ import android.text.TextUtils;
  * Created by xiaohai1 on 2017/4/20.
  */
 
-public class PutProxy {
+public class MPProxy extends IOptionProxy{
 
-    private static PutProxy putProxy ;
     private HandlerThread handlerThread ;
     private Handler mHandler ;
     private ContentResolver contentResolver ;
 
-    protected synchronized static  PutProxy getIns(Context context){
-        if (putProxy == null)
-            putProxy = new PutProxy(context) ;
-        return putProxy ;
-    }
-
-    protected PutProxy(Context context) {
+    protected MPProxy(Context context) {
         contentResolver = context.getContentResolver() ;
         handlerThread = new HandlerThread("sp writer") ;
         handlerThread.start();
         mHandler = new Handler(handlerThread.getLooper()) ;
     }
 
+    @Override
     protected void updateValue(final String name , final int mode , final int opt ,final  String key,final  String value) {
         if (!execUpdate(name , mode , opt , key ,value)){
             mHandler.postDelayed(new Runnable() {
@@ -43,7 +37,8 @@ public class PutProxy {
         }
     }
 
-    private boolean execUpdate(String name , int mode , int opt , String key, String value){
+    @Override
+    protected boolean execUpdate(String name , int mode , int opt , String key, String value){
 
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(key)){
             throw new RuntimeException( "SP Name || Key  Can not be null " ) ;
@@ -62,7 +57,9 @@ public class PutProxy {
         }
     }
 
+    @Override
     protected String queryProvidor(String Name , int Mode , String key) {
+
         if (TextUtils.isEmpty(Name) || TextUtils.isEmpty(key)){
             throw new RuntimeException( "SP Name || Key  Can not be null " ) ;
         }
@@ -73,6 +70,7 @@ public class PutProxy {
         catch(Exception e) {
             e.printStackTrace();
         }
+
         return null;
     }
 }

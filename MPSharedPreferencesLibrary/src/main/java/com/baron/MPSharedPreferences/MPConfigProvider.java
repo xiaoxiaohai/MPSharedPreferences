@@ -21,12 +21,20 @@ public class MPConfigProvider extends ContentProvider{
     public static final String CONTENT_NAME = "config_name" ;
     public static final String CONTENT_OPT = "config_opt" ;
     public static final String CONTENT_MODE = "config_mode" ;
-
     private MPConfigCursorFactory mFactory;
+
+    private static boolean init = false ;
+
+
+    public static boolean isInit(){
+        return init ;
+    }
+
 
     @Override
     public boolean onCreate() {
         mFactory = MPConfigCursorFactory.getInstance(getContext());
+        init = true ;
         return true;
     }
 

@@ -24,7 +24,7 @@ public class MPSharedPreferencesImpl implements MPSharedPreferences {
 
     @Nullable
     public String getString(String key, @Nullable String defValue) {
-        String res = PutProxy.getIns(context).queryProvidor(spName, mMode, key);
+        String res = MPProxy.getIns(context).queryProvidor(spName, mMode, key);
         if (TextUtils.isEmpty(res)) {
             return defValue;
         }
@@ -33,7 +33,7 @@ public class MPSharedPreferencesImpl implements MPSharedPreferences {
 
 
     public int getInt(String key, int defValue) {
-        String res = PutProxy.getIns(context).queryProvidor(spName, mMode, key);
+        String res = MPProxy.getIns(context).queryProvidor(spName, mMode, key);
         if (TextUtils.isEmpty(res)) {
             return defValue;
         }
@@ -45,7 +45,7 @@ public class MPSharedPreferencesImpl implements MPSharedPreferences {
     }
 
     public long getLong(String key, long defValue) {
-        String res = PutProxy.getIns(context).queryProvidor(spName, mMode, key);
+        String res = MPProxy.getIns(context).queryProvidor(spName, mMode, key);
         if (TextUtils.isEmpty(res)) {
             return defValue;
         }
@@ -57,7 +57,7 @@ public class MPSharedPreferencesImpl implements MPSharedPreferences {
     }
 
     public float getFloat(String key, float defValue) {
-        String res = PutProxy.getIns(context).queryProvidor(spName, mMode, key);
+        String res = MPProxy.getIns(context).queryProvidor(spName, mMode, key);
         if (TextUtils.isEmpty(res)) {
             return defValue;
         }
@@ -69,7 +69,7 @@ public class MPSharedPreferencesImpl implements MPSharedPreferences {
     }
 
     public boolean getBoolean(String key, boolean defValue) {
-        String res = PutProxy.getIns(context).queryProvidor(spName, mMode, key);
+        String res = MPProxy.getIns(context).queryProvidor(spName, mMode, key);
         if (TextUtils.isEmpty(res))
             return defValue;
         try {
@@ -94,32 +94,32 @@ public class MPSharedPreferencesImpl implements MPSharedPreferences {
         }
 
         public MPSharedPreferences.Editor putString(String key, @Nullable String value) {
-            PutProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_PUT, key, value);
+            IOptionProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_PUT, key, value);
             return this;
         }
 
         public MPSharedPreferences.Editor putInt(String key, int value) {
-            PutProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_PUT, key, value + "");
+            IOptionProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_PUT, key, value + "");
             return this;
         }
 
         public MPSharedPreferences.Editor putLong(String key, long value) {
-            PutProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_PUT, key, value + "");
+            IOptionProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_PUT, key, value + "");
             return this;
         }
 
         public MPSharedPreferences.Editor putFloat(String key, float value) {
-            PutProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_PUT, key, value + "");
+            IOptionProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_PUT, key, value + "");
             return this;
         }
 
         public MPSharedPreferences.Editor putBoolean(String key, boolean value) {
-            PutProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_PUT, key, value + "");
+            IOptionProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_PUT, key, value + "");
             return this;
         }
 
         public MPSharedPreferences.Editor remove(String key) {
-            PutProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_REMOVE, key, "");
+            IOptionProxy.getIns(context).updateValue(name, mode, MPConfigProvider.OPT_REMOVE, key, "");
             return this;
         }
 
