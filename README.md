@@ -18,7 +18,7 @@ compile 'com.mpsp:MPSharedPreferences:1.0.3'
 ```
 <provider
     android:authorities="************************************"
-    android:process=":remote"
+    android:process=":*****"
     android:name="com.baron.MPSharedPreferences.MPConfigProvider">
 </provider>
 ```
