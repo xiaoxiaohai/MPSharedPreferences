@@ -22,6 +22,7 @@
         
         <provider
             android:authorities="demo.sharedpreferences.mp.com.mpsharedpreferences.MPSharedPreference"
+            android:process=":remote2"
             android:name="com.baron.MPSharedPreferences.MPConfigProvider">
 
         </provider>

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        getSharedPreferences("" , 1)  ;
+//        getSharedPreferences("" , 1)  ;
 
         MPPreferenceManager.init(getApplicationContext() , "demo.sharedpreferences.mp.com.mpsharedpreferences.MPSharedPreference");
         MPSharedPreferences mpSharedPreferences = MPPreferenceManager.getSharedPreferences("haha" , Context.MODE_PRIVATE ) ;
